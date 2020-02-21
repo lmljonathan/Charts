@@ -681,7 +681,7 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
     }
     #endif
     
-    @objc private func panGestureRecognized(_ recognizer: NSUIPanGestureRecognizer)
+    @objc func panGestureRecognized(_ recognizer: NSUIPanGestureRecognizer)
     {
         if recognizer.state == NSUIGestureRecognizerState.began && recognizer.nsuiNumberOfTouches() > 0
         {
@@ -802,7 +802,7 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
         }
     }
     
-    private func performPanChange(translation: CGPoint) -> Bool
+    open func performPanChange(translation: CGPoint, callDelegate: Bool = true) -> Bool
     {
         var translation = translation
         
@@ -827,7 +827,9 @@ open class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChartD
         
         if matrix != originalMatrix
         {
-            delegate?.chartTranslated?(self, dX: translation.x, dY: translation.y)
+            if callDelegate {
+                delegate?.chartTranslated?(self, dX: translation.x, dY: translation.y)
+            }
         }
         
         // Did we managed to actually drag or did we reach the edge?
