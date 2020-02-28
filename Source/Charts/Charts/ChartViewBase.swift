@@ -110,6 +110,10 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
     
     @objc open var highlighter: IHighlighter?
     
+    @objc open var currentTranslation: CGPoint {
+        return _viewPortHandler.currentTranslation
+    }
+    
     /// object that manages the bounds and drawing constraints of the chart
     internal var _viewPortHandler: ViewPortHandler!
     

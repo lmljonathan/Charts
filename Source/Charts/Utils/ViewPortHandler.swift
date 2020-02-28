@@ -16,6 +16,10 @@ import CoreGraphics
 @objc(ChartViewPortHandler)
 open class ViewPortHandler: NSObject
 {
+    open var currentTranslation: CGPoint {
+        return CGPoint(x: _transX, y: _transY)
+    }
+    
     /// matrix used for touch events
     private var _touchMatrix = CGAffineTransform.identity
     
