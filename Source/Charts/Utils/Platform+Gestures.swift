@@ -92,7 +92,7 @@ extension NSUIPinchGestureRecognizer
 import AppKit
 
 public typealias NSUIGestureRecognizer = NSGestureRecognizer
-public typealias NSUIGestureRecognizerState = NSGestureRecognizer.State
+public typealias NSUIGestureRecognizerState = NSGestureRecognizer.TripState
 public typealias NSUIGestureRecognizerDelegate = NSGestureRecognizerDelegate
 public typealias NSUITapGestureRecognizer = NSClickGestureRecognizer
 public typealias NSUIPanGestureRecognizer = NSPanGestureRecognizer
